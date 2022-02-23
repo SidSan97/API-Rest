@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Clientes as Clientes;
+use App\Http\Resources\Clientes as ClientesResource;
+
 
 use Illuminate\Http\Request;
 
