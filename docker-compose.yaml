@@ -1,0 +1,32 @@
+version: "3.0"
+
+services:
+  db:
+    container_name: jn2_mysql
+    image: mysql:5.7
+    command: --innodb-use-native-aio=0
+    restart: always
+    tty: true
+    volumes:
+      - ./_docker/database/data:/var/lib/mysql
+      - ./_docker/database/backup/:/backup/
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_DATABASE=desafio_jn2
+      - MYSQL_ROOT_PASSWORD=root
+    networks:
+      - apiLaravel
+  api:
+    container_name: jn2_mysql
+    build: .
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/var/www
+    restart: always
+    networks:
+      - apiLaravel
+networks:
+  applicationname:
+    driver: bridge
