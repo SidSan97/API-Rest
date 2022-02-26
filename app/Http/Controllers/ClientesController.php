@@ -17,8 +17,7 @@ class ClientesController extends Controller
      */
     public function index()
     {
-        $clientes = Clientes::paginate(15);
-        return ClientesResource::collection($clientes);
+        return Clientes::all();
     }
 
     /**

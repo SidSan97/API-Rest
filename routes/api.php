@@ -7,12 +7,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('clientes', [ClientesController::class, 'index']);
+Route::apiResource('clientes', 'api/ClientesController');
 
-Route::get('clientes/{id}', [ClientesController::class, 'show']);
-
-Route::post('clientes', [ClientesController::class, 'store']);
-
-Route::put('clientes/{id}', [ClientesController::class, 'update']);
-
-Route::delete('clientes/{id}', [ClientesController::class,'destroy']);
