@@ -19,3 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('clientes', 'api/ClientesController');
+Route::post(url: 'clientes', action: 'ClientesController@store')->name(name:'clientes.store');
