@@ -67,9 +67,10 @@ class ClientesController extends Controller
         $clientes->cpf   = $request->cpf;
         $clientes->placa = $request->placa;
 
-        if( $clientes->save() ){
-        return new ClientesResource( $clientes );
-    }
+        if( $clientes->save() )
+        {
+            return new ClientesResource( $clientes );
+        }
     }
 
     /**
@@ -81,18 +82,18 @@ class ClientesController extends Controller
     public function destroy($id)
     {
         $clientes = Clientes::findOrFail( $id );
-        if( $clientes->delete() ){
-        return new ClientesResource( $clientes );
+        if( $clientes->delete() )
+        {
+            return new ClientesResource( $clientes );
         }
 
     }
 
-    public function showPlaca($placa)
+    public function showPlaca(Request $request)
     {
-        $clientes = Clientes::findOrFail($placa);
-        $lastNumber = substr($clientes, -1);
-        
-        if(substr($clientes, -1) == $lastNumber)
+        $clientes = Clientes::findOrFail($request->placa);
+
+        if(substr($clientes, -1) == substr($request->placa, -1))
             return new ClientesResource( $clientes );
     }
 }

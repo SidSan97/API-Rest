@@ -16,3 +16,5 @@ Route::post('clientes', [ClientesController::class, 'store']);
 Route::put('clientes/{id}', [ClientesController::class, 'update']);
 
 Route::delete('clientes/{id}', [ClientesController::class,'destroy']);
+
+Route::get('clientes/{placa}', [ClientesController::class,'showPlaca']);

@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Http\Rules\ValidaCpf;
+use App\Rules\ValidaCpf;
 
 class ClientesRequest extends FormRequest
 {
