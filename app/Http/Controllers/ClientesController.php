@@ -86,4 +86,13 @@ class ClientesController extends Controller
         }
 
     }
+
+    public function showPlaca($placa)
+    {
+        $clientes = Clientes::findOrFail($placa);
+        $lastNumber = substr($clientes, -1);
+        
+        if(substr($clientes, -1) == $lastNumber)
+            return new ClientesResource( $clientes );
+    }
 }

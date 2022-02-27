@@ -9,10 +9,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('clientes', [ClientesController::class, 'index']);
 
-Route::get('exibir-clientes/{id}', [ClientesController::class, 'show']);
+Route::get('clientes/{id}', [ClientesController::class, 'show']);
 
-Route::post('criar-cliente', [ClientesController::class, 'store']);
+Route::post('clientes', [ClientesController::class, 'store']);
 
-Route::put('editar-clientes/{id}', [ClientesController::class, 'update']);
+Route::put('clientes/{id}', [ClientesController::class, 'update']);
 
-Route::delete('remover-clientes/{id}', [ClientesController::class,'destroy']);
+Route::delete('clientes/{id}', [ClientesController::class,'destroy']);
+
+Route::get('clientes/{placa}', [ClientesController::class,'showPlaca']);

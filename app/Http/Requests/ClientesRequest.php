@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Rules\ValidaCpf;
 
 class ClientesRequest extends FormRequest
 {
@@ -26,7 +27,7 @@ class ClientesRequest extends FormRequest
         return [
             'nome'  => 'required',
             'tel'   => 'required',
-            'cpf'   => 'required',
+            'cpf'   => ['required', new ValidaCpf],
             'placa' => 'required',
         ];
     }
